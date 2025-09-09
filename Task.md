@@ -2,7 +2,10 @@
 
 A practical, time-boxed plan for building an interview-ready MVP in 1–2 months, with optional advanced features in weeks 9–12. Each week includes objectives, tasks, deliverables, and acceptance criteria.
 
+---
+
 ### Week 1 — Project Setup & Planning
+
 - **Objective:** Define MVP scope and set up repo/infrastructure.
 - **Tasks:**
   - Finalize MVP features: file upload (PDF/image/audio/table), doc Q&A, summarization, search, chat UI.
@@ -13,7 +16,14 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Deliverables:** Repo, architecture doc, tech stack list, project board.
 - **Acceptance:** Can run npm start and uvicorn locally; CI skeleton present.
 
+#### Done week 1, except Design architecture
+
+- on 10 september 2025
+
+---
+
 ### Week 2 — File Upload & Ingestion
+
 - **Objective:** Build file upload UI and backend ingestion pipeline.
 - **Tasks:**
   - Frontend: upload component (FilePond/Uppy) with preview and mime-type detection.
@@ -24,6 +34,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Acceptance:** Uploading a PDF returns text; frontend shows preview.
 
 ### Week 3 — Core AI Pipelines & Orchestration
+
 - **Objective:** Integrate Hugging Face models and orchestrate processing.
 - **Tasks:**
   - Implement pipeline_orchestrator(file_id) to detect content type and run appropriate models.
@@ -34,6 +45,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Acceptance:** API returns summary and vector index for a PDF.
 
 ### Week 4 — Chat/Q&A & Semantic Search
+
 - **Objective:** Build chat interface for Q&A on uploaded content.
 - **Tasks:**
   - Frontend chat UI with context and file selector.
@@ -43,6 +55,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Acceptance:** Accurate answers with page references.
 
 ### Week 5 — Table QA & Analytics Dashboard
+
 - **Objective:** Support table question answering and analytics.
 - **Tasks:**
   - Table QA pipeline (table → HF table-QA model).
@@ -52,6 +65,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Acceptance:** Table queries return correct values and charts.
 
 ### Week 6 — Async Processing & Scalability
+
 - **Objective:** Add background processing and caching.
 - **Tasks:**
   - Task queue (Celery + Redis/RQ) for heavy jobs.
@@ -61,6 +75,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Acceptance:** Long jobs show status until complete.
 
 ### Week 7 — Security, Privacy & Deployment Prep
+
 - **Objective:** Harden app for users and demos.
 - **Tasks:**
   - Add user accounts (Auth0/JWT or simple email auth).
@@ -71,6 +86,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Acceptance:** User can sign up, upload, and delete docs.
 
 ### Week 8 — Polish, Docs, Demo & Release
+
 - **Objective:** Final polish, documentation, and demo.
 - **Tasks:**
   - Write README with features, architecture, setup.
@@ -82,6 +98,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - **Acceptance:** Demo runs in production; README is reproducible.
 
 ### Weeks 9–12 (Optional Advanced Features)
+
 - Multimodal cross-document search
 - Fine-tune models for domain-specific tasks
 - Voice-based chat (diarization + ASR)
@@ -89,6 +106,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - Cost optimization: batch embeddings, model selection
 
 ### Models/Tasks Mapping
+
 - Document QA: HF deepset/roberta-base-squad2, RAG with sentence-transformers
 - Image-to-Text: OCR + captioning (layoutlm, donut)
 - Summarization: bart-large-cnn, pegasus, or LLM completion
@@ -98,6 +116,7 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - Embeddings: sentence-transformers for Chroma/Weaviate/FAISS
 
 ### Real-World APIs & Data Sources
+
 - Google Drive/Dropbox/OneDrive (docs)
 - Gmail (attachments, with permission)
 - Plaid/Open Banking APIs, sample CSVs
@@ -105,17 +124,20 @@ A practical, time-boxed plan for building an interview-ready MVP in 1–2 months
 - Public datasets: arXiv PDFs, Kaggle finance
 
 ### Architecture & Scaling Notes
+
 - Microservices: FastAPI API, Celery worker, Chroma vector store, S3 storage
 - Async endpoints for responsiveness; heavy jobs offloaded
 - Cache embeddings/model outputs
 - Model fallback: local for cheap ops, cloud LLM for final answers
 
 ### Resume/Interview Bullets & Metrics
+
 - "Designed and deployed LifeLens, a multimodal assistant supporting PDF/image/audio/CSV ingestion, semantic search, and document Q&A using Hugging Face pipelines. Implemented async processing and vector search for sub-second queries."
 - "Built end-to-end table QA and audio transcription; reduced query latency by 40% via caching and background workers."
 - "Integrated real-world APIs, PII deletion, role-based auth, and deployed on Vercel + Render."
 
 ### Quick Demo Script (2 mins)
+
 - 0:00–0:20 — Upload a research PDF (show UI)
 - 0:20–0:50 — Show summary; ask a question; show answer with citation
 - 0:50–1:20 — Upload bank CSV; show dashboard and table QA
